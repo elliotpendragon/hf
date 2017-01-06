@@ -122,7 +122,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         float temp = Density(pos);
         //temp *= saturate(t-1.0);
 
-        inc = 1.9 + temp*0.05;// add temp because this makes it look extra crazy!
+        inc = 1.9 ; //+ temp*0.05;// add temp because this makes it look extra crazy!
         density += temp * inc;
         t += inc;
     }
