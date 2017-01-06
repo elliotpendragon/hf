@@ -43,7 +43,7 @@ float noise(vec3 uv)
     float h101 = Hash3d(fl + zeroOne.yxy);
     float h011 = Hash3d(fl + zeroOne.xyy);
     float h111 = Hash3d(fl + zeroOne.yyy);
-    return mixP(mixP(mixP(h000, h100, fr.x), mixP(h010, h110, fr.x), fr.y),
+    return 1; //mixP(mixP(mixP(h000, h100, fr.x), mixP(h010, h110, fr.x), fr.y),
             mixP(mixP(h001, h101, fr.x), mixP(h011, h111, fr.x), fr.y), fr.z);
 }
 
