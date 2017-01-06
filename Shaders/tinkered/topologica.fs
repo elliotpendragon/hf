@@ -132,7 +132,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec3 finalColor = vec3(1.0,1.0,1.0); ///* density*0.5;
 
     // output the final color with sqrt for "gamma correction"
-    fragColor = vec4(sqrt(clamp(finalColor, 0.0, 1.0)),1.0);
+    fragColor = vec3(1.0,1.0,1.0); //vec4(sqrt(clamp(finalColor, 0.0, 1.0)),1.0);
 }
 
 vec4 getProceduralColor() {
