@@ -1,19 +1,28 @@
 
+
+
+
+
 // various noise functions
 float Hash2d(vec2 uv)
 {
     float f = uv.x + uv.y * 47.0;
     return fract(cos(f*3.333)*100003.9);
 }
-float Hash3d(vec3 uv) {
+float Hash3d(vec3 uv)
+{
     float f = uv.x + uv.y * 37.0 + uv.z * 521.0;
-    return fract(cos(f * 3.333) * 100003.9);
+    return fract(cos(f*3.333)*100003.9);
 }
-float mixP(float f0, float f1, float a) {
-    return mix(f0, f1, a * a * (3.0 - 2.0 * a));
+float mixP(float f0, float f1, float a)
+{
+    return mix(f0, f1, a*a*(3.0-2.0*a));
 }
+
 const vec2 zeroOne = vec2(0.0, 1.0);
-float noise2d(vec2 uv) {
+
+float noise2d(vec2 uv)
+{
     vec2 fr = fract(uv.xy);
     vec2 fl = floor(uv.xy);
     float h00 = Hash2d(fl);
@@ -22,8 +31,8 @@ float noise2d(vec2 uv) {
     float h11 = Hash2d(fl + zeroOne.yy);
     return mixP(mixP(h00, h10, fr.x), mixP(h01, h11, fr.x), fr.y);
 }
-
-float noise(vec3 uv) {
+float noise(vec3 uv)
+{
     vec3 fr = fract(uv.xyz);
     vec3 fl = floor(uv.xyz);
     float h000 = Hash3d(fl);
@@ -38,19 +47,33 @@ float noise(vec3 uv) {
             mixP(mixP(h001, h101, fr.x), mixP(h011, h111, fr.x), fr.y), fr.z);
 }
 
-float PI = 1.0 ; //3.14159265
 
-vec3 saturate(vec3 a) {
+
+
+
+
+
+
+
+
+
+float PI = 20.0 ; //3.14159265
+
+vec3 saturate(vec3 a)
+{
     return clamp(a, 0.0, 1.0);
 }
-vec2 saturate(vec2 a) {
+vec2 saturate(vec2 a)
+{
     return clamp(a, 0.0, 1.0);
 }
-float saturate(float a) {
+float saturate(float a)
+{
     return clamp(a, 0.0, 1.0);
 }
 
-float Density(vec3 p) {
+float Density(vec3 p)
+{
     //float ws = 0.06125*0.125;
     //vec3 warp = vec3(noise(p*ws), noise(p*ws + 111.11), noise(p*ws + 7111.11));
     float final = noise(p * 0.06125);    // + sin(iGlobalTime)*0.5-1.95 + warp.x*4.0;
@@ -88,11 +111,11 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     // --------------------------------------------------------------------------------
     float t = 0.0;
     float inc = 0.02;
-    float maxDepth = 70.0;
+    float maxDepth = 200.0;
     vec3 pos = vec3(0,0,0);
     float density = 0.0;
     // ray marching time
-    for (int i = 0; i < 37; i++)// This is the count of how many times the ray actually marches.
+    for (int i = 0; i < 2; i++)// 37 This is the count of how many times the ray actually marches.
     {
         if ((t > maxDepth)) break;
         pos = camPos + relVec * t;
