@@ -118,12 +118,12 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     for (int i = 0; i < 37; i++)// 37 This is the count of how many times the ray actually marches.
     {
         if ((t > maxDepth)) break;
-        pos = camPos + relVec * t;
+        pos = camPos; // + relVec * t;
         float temp = Density(pos);
         //temp *= saturate(t-1.0);
 
         inc = 1.9 ; //+ temp*0.05;// add temp because this makes it look extra crazy!
-        density += temp * inc;
+        density = temp * inc; //+= temp * inc;
         t += inc;
     }
 
