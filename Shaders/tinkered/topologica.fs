@@ -115,7 +115,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec3 pos = vec3(0,0,0);
     float density = 0.0;
     // ray marching time
-    for (int i = 0; i < 60; i++)// 37 This is the count of how many times the ray actually marches.
+    for (int i = 0; i < 37; i++)// 37 This is the count of how many times the ray actually marches.
     {
         if ((t > maxDepth)) break;
         pos = camPos + relVec * t;
