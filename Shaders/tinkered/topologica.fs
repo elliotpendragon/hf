@@ -61,7 +61,7 @@ float PI = 1.0 ; //3.14159265
 
 vec3 saturate(vec3 a)
 {
-    return clamp(a, 0.0, 1.0);
+    return clamp(a, 0.0, 2.0);
 }
 vec2 saturate(vec2 a)
 {
@@ -69,7 +69,7 @@ vec2 saturate(vec2 a)
 }
 float saturate(float a)
 {
-    return clamp(a, 0.0, 1.0);
+    return clamp(a, 0.0, 2.0);
 }
 
 float Density(vec3 p)
