@@ -65,11 +65,11 @@ vec3 saturate(vec3 a)
 }
 vec2 saturate(vec2 a)
 {
-    return clamp(a, 0.0, 1.0);
+    return clamp(a, 1.0, 1.0);
 }
 float saturate(float a)
 {
-    return clamp(a, 0.0, 1.0);
+    return clamp(a, 1.0, 1.0);
 }
 
 float Density(vec3 p)
