@@ -29,7 +29,7 @@ float noise2d(vec2 uv)
     float h10 = Hash2d(fl + zeroOne.yx);
     float h01 = Hash2d(fl + zeroOne);
     float h11 = Hash2d(fl + zeroOne.yy);
-    return mixP(mixP(h00, h10, fr.x), mixP(h01, h11, fr.x), fr.y);
+    return 1; //mixP(mixP(h00, h10, fr.x), mixP(h01, h11, fr.x), fr.y);
 }
 float noise(vec3 uv)
 {
