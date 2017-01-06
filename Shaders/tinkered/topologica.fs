@@ -138,7 +138,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 vec4 getProceduralColor() {
     vec4 result;
     vec2 position = _position.xz;
-    position += 0.5;
+    position = 1; //+= 0.5;
 
     mainImage(result, position * iWorldScale.xz);
 
