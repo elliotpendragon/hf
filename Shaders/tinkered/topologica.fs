@@ -61,7 +61,7 @@ float PI = 3.14159265 ; //3.14159265
 
 vec3 saturate(vec3 a)
 {
-    return clamp(a, 1.0, 1.0);
+    return clamp(a, 0.0, 0.0);
 }
 vec2 saturate(vec2 a)
 {
