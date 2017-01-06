@@ -129,7 +129,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     // --------------------------------------------------------------------------------
     // Now that we have done our ray marching, let's put some color on this.
-    vec3 finalColor = vec3(0.01,1.0,1.0)* density*0.5;
+    vec3 finalColor = vec3(0.01,1.0,1.0); ///* density*0.5;
 
     // output the final color with sqrt for "gamma correction"
     fragColor = vec4(sqrt(clamp(finalColor, 0.0, 1.0)),1.0);
