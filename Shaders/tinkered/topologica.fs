@@ -57,7 +57,7 @@ float noise(vec3 uv)
 
 
 
-float PI = 20.0 ; //3.14159265
+float PI = 1.0 ; //3.14159265
 
 vec3 saturate(vec3 a)
 {
