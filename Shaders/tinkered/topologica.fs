@@ -7,16 +7,16 @@
 float Hash2d(vec2 uv)
 {
     float f = uv.x + uv.y * 47.0;
-    return fract(cos(f*3.333)*100003.9);
+    return uv; //fract(cos(f*3.333)*100003.9);
 }
 float Hash3d(vec3 uv)
 {
     float f = uv.x + uv.y * 37.0 + uv.z * 521.0;
-    return fract(cos(f*3.333)*100003.9);
+    return uv; //fract(cos(f*3.333)*100003.9);
 }
 float mixP(float f0, float f1, float a)
 {
-    return mix(f0, f1, a*a*(3.0-2.0*a));
+    return mix(f0, f1, a); //a*a*(3.0-2.0*a));
 }
 
 const vec2 zeroOne = vec2(0.0, 1.0);
@@ -29,7 +29,7 @@ float noise2d(vec2 uv)
     float h10 = Hash2d(fl + zeroOne.yx);
     float h01 = Hash2d(fl + zeroOne);
     float h11 = Hash2d(fl + zeroOne.yy);
-    return 1; //mixP(mixP(h00, h10, fr.x), mixP(h01, h11, fr.x), fr.y);
+    return uv; //mixP(mixP(h00, h10, fr.x), mixP(h01, h11, fr.x), fr.y);
 }
 float noise(vec3 uv)
 {
@@ -43,7 +43,7 @@ float noise(vec3 uv)
     float h101 = Hash3d(fl + zeroOne.yxy);
     float h011 = Hash3d(fl + zeroOne.xyy);
     float h111 = Hash3d(fl + zeroOne.yyy);
-    return 1; //mixP(mixP(mixP(h000, h100, fr.x), mixP(h010, h110, fr.x), fr.y),
+    return uv; //mixP(mixP(mixP(h000, h100, fr.x), mixP(h010, h110, fr.x), fr.y),
             mixP(mixP(h001, h101, fr.x), mixP(h011, h111, fr.x), fr.y), fr.z);
 }
 
